@@ -1,15 +1,15 @@
 {
   "name": "@speajus/vitest-markdown",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "type":"module",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     }
   },
-  "files":[
+  "files": [
     "dist",
     "src"
   ],
@@ -33,6 +33,8 @@
     "vitest": "^2.1.8"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.11",
+    "changesets": "^1.0.2",
     "marked": "^15.0.6",
     "source-map": "^0.7.4"
   }

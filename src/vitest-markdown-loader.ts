@@ -4,14 +4,7 @@ import * as ts from "typescript";
 import { SourceMapGenerator } from "source-map";
 import path from "path";
 import { prettyDiag } from "./util";
-const dirname = (() => {
-  try {
-    return __dirname;
-  } catch (e) {
-    //@ts-ignore
-    return import.meta.dirname;
-  }
-})();
+
 function removeInfoString(origText: string): {
   text: string;
   filename?: string;
@@ -116,7 +109,7 @@ export async function parseMarkdownFile(
 }
 const paths = {
   vitest: ["./node_modules/vitest/index.d.cts"],
-  "@speajus/vitest-markdown": [`.`],
+  "@speajus/vitest-markdown": ['./serc/index.ts'],
 };
 
 export function markdownTest(
