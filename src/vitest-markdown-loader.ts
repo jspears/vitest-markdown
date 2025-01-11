@@ -69,7 +69,7 @@ ${Array.from(
   ([
     key,
     value,
-  ]) => `${JSON.stringify(key)}:class extends MModule { constructor() {
+  ]) => `${JSON.stringify(key)}:class extends __Module { constructor() {
   const exports = this.exports = {};
   ${value};
 }}`,
@@ -303,7 +303,7 @@ export function markdownTest(
 import * as __vitest__ from 'vitest';
 ${notTranspiledModule.map((name, idx) => `import * as __${idx} from '${compilerOptions.paths?.[name]?.[0] ?? name}'`).join(";\n")}
 
-class MModule {  }
+class __Module {  }
 
 const require = ((map)=>{
 const fakeViTest = {
@@ -319,7 +319,7 @@ const fakeViTest = {
  }
 }
 
-    return (name) => name === 'vitest' ? fakeViTest : map[name]?.constructor === MModule ? (map[name] = new (map[name])().exports) : map[name] 
+    return (name) => name === 'vitest' ? fakeViTest : map[name]?.constructor === __Module ? (map[name] = new (map[name])().exports) : map[name] 
 })(${toObjStrMap(notTranspiledModule, filteredFiles)})
 
 ${testCases.length ? testCases.join("\n") : `__vitest__.it('No Tests', ()=>{__vitest__.expect(true).toBe(true)})`}

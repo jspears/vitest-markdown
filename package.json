@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "tsc && tsc -p ./tsconfig.cjs.json",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "prettier --write \"**/*.{ts,js,md}\"",
     "lint:check": "prettier --check \"**/*.{ts,js,md}\""
   },
