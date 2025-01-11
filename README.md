@@ -3,6 +3,7 @@
 A Vitest plugin that parses markdown files, extracts TypeScript code blocks, and attempts to compile and execute them as tests.
 
 ## Caveats
+
 - Use at your own risk.
 - This plugin will evaluate your code, so don't run anything destructive.
 
@@ -14,7 +15,6 @@ A Vitest plugin that parses markdown files, extracts TypeScript code blocks, and
 - Supports named code blocks for better organization
 - Provides detailed error reporting for compilation and runtime errors
 
-
 ## Configuration Block
 
 You can configure a markdown block by giving it a filename and a title. This allows you to include that file in other places in your examples and provides better organization for your code snippets.
@@ -23,10 +23,10 @@ You can configure a markdown block by giving it a filename and a title. This all
 
 To configure a code block, use the following syntax in your markdown:
 
-```typescript 
+```typescript
 //filename=/example.ts, title="Example TypeScript File"
 
-console.log('Your typescript code here')
+console.log("Your typescript code here");
 ```
 
 ### Example
@@ -41,7 +41,7 @@ Here's an example of how to use configured code blocks:
 //filename=/Button.tsx
 
 export class Button {
-  constructor(private props:{label: string}) {}
+  constructor(private props: { label: string }) {}
 
   render() {
     return `<button>${this.props.label}</button>`;
@@ -85,15 +85,15 @@ npm install --save-dev @speajus/vitest-markdown
 
 ```typescript
 //file=/vitest.config.ts
-import { defineConfig } from 'vitest/config'
-import { markdownTest } from '@speajus/vitest-markdown'
+import { defineConfig } from "vitest/config";
+import { markdownTest } from "@speajus/vitest-markdown";
 
 export default defineConfig({
   plugins: [markdownTest()],
   test: {
     // ... your other Vitest configurations
-  }
-})
+  },
+});
 ```
 
 2. Write your markdown files with TypeScript code blocks:
@@ -103,21 +103,20 @@ export default defineConfig({
 This is a simple test in markdown.
 
 ```typescript
-import { expect, test } from 'vitest'
+import { expect, test } from "vitest";
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(1 + 2).toBe(3)
-})
+test("adds 1 + 2 to equal 3", () => {
+  expect(1 + 2).toBe(3);
+});
 ```
 
 You can also use named code blocks:
 
-```typescript 
+```typescript
 //title=multiply.test.ts
-import { expect, test } from 'vitest'
+import { expect, test } from "vitest";
 
-test('multiplies 2 * 3 to equal 6', () => {
-  expect(2 * 3).toBe(6)
-})
+test("multiplies 2 * 3 to equal 6", () => {
+  expect(2 * 3).toBe(6);
+});
 ```
-
