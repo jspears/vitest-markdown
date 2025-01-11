@@ -1,0 +1,39 @@
+{
+  "name": "@speajus/vitest-markdown",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files":[
+    "dist",
+    "src"
+  ],
+  "bin": {
+    "vitest-markdown-loader": "./dist/cjs/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && tsc -p ./tsconfig.cjs.json",
+    "test": "vitest",
+    "lint:fix": "prettier --write \"**/*.{ts,js,md}\"",
+    "lint": "prettier --check \"**/*.{ts,js,md}\""
+  },
+  "keywords": [],
+  "author": "Justin Spears <speajus@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "marked": "^15.0.6",
+    "source-map": "^0.7.4"
+  }
+}

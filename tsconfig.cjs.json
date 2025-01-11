@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "../dist/cjs",
+    "target": "ES2019",
+    "declaration": false
+  },
+  "exclude": ["**/__test__/**", "**/*.test.ts"]
+}
